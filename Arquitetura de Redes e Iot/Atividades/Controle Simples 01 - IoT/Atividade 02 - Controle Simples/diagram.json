@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "author": "Maria Eduarda L. Alencar",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": -99, "left": -122, "attrs": {} },
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 113.54,
+      "left": -5.9,
+      "rotate": 90,
+      "attrs": { "env": "micropython-20231227-v1.22.0" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 6,
+      "left": -53.4,
+      "attrs": { "color": "red", "flip": "1" }
+    },
+    { "type": "wokwi-led", "id": "led2", "top": 6, "left": -25, "attrs": { "color": "green" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 51.95,
+      "left": -96,
+      "attrs": { "value": "65" }
+    },
+    { "type": "wokwi-resistor", "id": "r2", "top": 51.95, "left": 0, "attrs": { "value": "65" } },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn1",
+      "top": -2.2,
+      "left": 86.4,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn2",
+      "top": -2.2,
+      "left": 57.6,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn3",
+      "top": -2.2,
+      "left": 134.4,
+      "attrs": { "color": "black" }
+    },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn4",
+      "top": -2.2,
+      "left": 163.2,
+      "attrs": { "color": "black" }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": -73.66,
+      "left": -66.97,
+      "attrs": { "i2cAddress": "0x3c" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "bb1:tn.25", "bb1:bn.25", "black", [ "v-0.1", "h49.6", "v172.8" ] ],
+    [ "bb1:tp.25", "bb1:bp.25", "red", [ "v0.3", "h78.4", "v172.8" ] ],
+    [ "bb1:tn.14", "bb1:17t.e", "black", [ "v0" ] ],
+    [ "bb1:tn.16", "bb1:20t.e", "black", [ "v0" ] ],
+    [ "bb1:tn.21", "bb1:26t.e", "black", [ "v0" ] ],
+    [ "bb1:tn.23", "bb1:28t.e", "black", [ "v0" ] ],
+    [ "oled1:GND", "bb1:tn.6", "black", [ "v0" ] ],
+    [ "oled1:VCC", "bb1:tp.7", "red", [ "v0" ] ],
+    [ "bb1:1b.i", "esp:17", "purple", [ "v0", "h-67.2", "v259.2", "h182.4" ] ],
+    [ "esp:GND.1", "bb1:bn.9", "black", [ "v0" ] ],
+    [ "esp:14", "bb1:23b.g", "#8f4814", [ "v-95.85", "h9.6" ] ],
+    [ "esp:12", "bb1:20b.g", "black", [ "v-105.45", "h76.8" ] ],
+    [ "esp:27", "bb1:28b.g", "limegreen", [ "v-95.85", "h115.2" ] ],
+    [ "r1:1", "bb1:1b.j", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:7b.j", "", [ "$bb" ] ],
+    [ "r2:1", "bb1:11b.j", "", [ "$bb" ] ],
+    [ "r2:2", "bb1:17b.j", "", [ "$bb" ] ],
+    [ "led2:A", "bb1:11b.i", "", [ "$bb" ] ],
+    [ "led2:C", "bb1:10b.i", "", [ "$bb" ] ],
+    [ "led1:A", "bb1:7b.i", "", [ "$bb" ] ],
+    [ "led1:C", "bb1:8b.i", "", [ "$bb" ] ],
+    [ "btn4:2.l", "bb1:28b.f", "", [ "$bb" ] ],
+    [ "btn3:2.l", "bb1:25b.f", "", [ "$bb" ] ],
+    [ "btn3:2.r", "bb1:28b.f", "", [ "$bb" ] ],
+    [ "btn1:2.l", "bb1:20b.f", "", [ "$bb" ] ],
+    [ "btn1:2.r", "bb1:23b.f", "", [ "$bb" ] ],
+    [ "btn2:2.l", "bb1:17b.f", "", [ "$bb" ] ],
+    [ "btn2:2.r", "bb1:20b.f", "", [ "$bb" ] ],
+    [ "bb1:16b.i", "bb1:19b.i", "green", [ "v0" ] ],
+    [ "esp:18", "bb1:19b.i", "green", [ "v19.2", "h-172.8", "v-153.6", "h201.6" ] ],
+    [ "oled1:SDA", "esp:21", "gold", [ "v-48", "h278.47", "v403.2", "h-201.6", "v9.6" ] ],
+    [ "oled1:SCL", "esp:22", "blue", [ "v-67.2", "h326.7", "v451.2", "h-211.2", "v-9.6" ] ],
+    [ "bb1:8b.j", "bb1:bn.6", "black", [ "v9.6", "h9.6", "v-9.6" ] ],
+    [ "bb1:10b.j", "bb1:bn.8", "black", [ "v9.6", "h-9.6", "v0", "h0", "v0" ] ],
+    [ "esp:26", "bb1:30b.g", "green", [ "v-105.45", "h0" ] ]
+  ],
+  "dependencies": {}
+}
